@@ -30,6 +30,12 @@
 		73B2E66F1CEB7FC200DA7E25 /* UIImage+HXExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B2E6571CEB7FC200DA7E25 /* UIImage+HXExtension.m */; };
 		73B2E6701CEB7FC200DA7E25 /* HXResponseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B2E65E1CEB7FC200DA7E25 /* HXResponseManager.m */; };
 		73B2E6711CEB7FC200DA7E25 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 73B2E6611CEB7FC200DA7E25 /* RootViewController.m */; };
+		73CA6C261CECB399001E047E /* File in Resources */ = {isa = PBXBuildFile; fileRef = 73CA6C201CECB399001E047E /* File */; };
+		73CA6C291CECB399001E047E /* File in Resources */ = {isa = PBXBuildFile; fileRef = 73CA6C251CECB399001E047E /* File */; };
+		73CA6C2B1CECB3AB001E047E /* File in Resources */ = {isa = PBXBuildFile; fileRef = 73CA6C2A1CECB3AB001E047E /* File */; };
+		73CA6C2D1CECB3B6001E047E /* File in Resources */ = {isa = PBXBuildFile; fileRef = 73CA6C2C1CECB3B6001E047E /* File */; };
+		73CA6C2F1CECB3F6001E047E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 73CA6C2E1CECB3F6001E047E /* Localizable.strings */; };
+		73CA6C311CECB40E001E047E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 73CA6C301CECB40E001E047E /* InfoPlist.strings */; };
 		7CE7650CC9FB7A3BB2B4D573 /* libPods-app.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECACA5459A95CCBC1CF56E6E /* libPods-app.a */; };
 		DD21778AB6D4ACAB1EA1DF50 /* libPods-appTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DB7ED1FC32E546BEC9E4458 /* libPods-appTests.a */; };
 		FDE15FA62B188023BCC66973 /* libPods-appUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E4457971B5C9035A0EC188C /* libPods-appUITests.a */; };
@@ -107,6 +113,14 @@
 		73B2E65E1CEB7FC200DA7E25 /* HXResponseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HXResponseManager.m; sourceTree = "<group>"; };
 		73B2E6601CEB7FC200DA7E25 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		73B2E6611CEB7FC200DA7E25 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		73CA6C201CECB399001E047E /* File */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = File; sourceTree = "<group>"; };
+		73CA6C251CECB399001E047E /* File */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = File; sourceTree = "<group>"; };
+		73CA6C2A1CECB3AB001E047E /* File */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = File; sourceTree = "<group>"; };
+		73CA6C2C1CECB3B6001E047E /* File */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = File; sourceTree = "<group>"; };
+		73CA6C2E1CECB3F6001E047E /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		73CA6C301CECB40E001E047E /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		73CA6C321CECB52D001E047E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		73CA6C331CECB52D001E047E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		ACA4689B6234202DF94F289B /* Pods-appTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-appTests/Pods-appTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BF093EC99E6796500DCA4878 /* Pods-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-app.release.xcconfig"; path = "Pods/Target Support Files/Pods-app/Pods-app.release.xcconfig"; sourceTree = "<group>"; };
 		CA9D052B381EAE4B86B622CE /* Pods-appTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-appTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-appTests/Pods-appTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -144,8 +158,9 @@
 		575E88B71CEC19730044E29B /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				575E88BA1CEC198D0044E29B /* Images */,
-				575E88BB1CEC19B10044E29B /* Other */,
+				73CA6C1F1CECB399001E047E /* Images */,
+				73CA6C211CECB399001E047E /* Localizable */,
+				73CA6C241CECB399001E047E /* Other */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -153,6 +168,7 @@
 		575E88B81CEC19730044E29B /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				73CA6C2A1CECB3AB001E047E /* File */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -160,22 +176,9 @@
 		575E88B91CEC19730044E29B /* Utillity */ = {
 			isa = PBXGroup;
 			children = (
+				73CA6C2C1CECB3B6001E047E /* File */,
 			);
 			path = Utillity;
-			sourceTree = "<group>";
-		};
-		575E88BA1CEC198D0044E29B /* Images */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Images;
-			sourceTree = "<group>";
-		};
-		575E88BB1CEC19B10044E29B /* Other */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Other;
 			sourceTree = "<group>";
 		};
 		61AC30EC6EDD6613FCB81FEF /* Frameworks */ = {
@@ -328,6 +331,31 @@
 			path = Request;
 			sourceTree = "<group>";
 		};
+		73CA6C1F1CECB399001E047E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				73CA6C201CECB399001E047E /* File */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		73CA6C211CECB399001E047E /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				73CA6C2E1CECB3F6001E047E /* Localizable.strings */,
+				73CA6C301CECB40E001E047E /* InfoPlist.strings */,
+			);
+			path = Localizable;
+			sourceTree = "<group>";
+		};
+		73CA6C241CECB399001E047E /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				73CA6C251CECB399001E047E /* File */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
 		CDFBD0EBD120A3ABB986174F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -453,9 +481,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				73CA6C261CECB399001E047E /* File in Resources */,
+				73CA6C291CECB399001E047E /* File in Resources */,
 				73B2E5D21CEB7E9200DA7E25 /* LaunchScreen.storyboard in Resources */,
+				73CA6C2B1CECB3AB001E047E /* File in Resources */,
 				73B2E5CF1CEB7E9200DA7E25 /* Assets.xcassets in Resources */,
+				73CA6C2F1CECB3F6001E047E /* Localizable.strings in Resources */,
 				73B2E5CA1CEB7E9200DA7E25 /* Main.storyboard in Resources */,
+				73CA6C311CECB40E001E047E /* InfoPlist.strings in Resources */,
+				73CA6C2D1CECB3B6001E047E /* File in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -660,6 +694,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				73B2E5C91CEB7E9200DA7E25 /* Base */,
+				73CA6C321CECB52D001E047E /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -668,6 +703,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				73B2E5D11CEB7E9200DA7E25 /* Base */,
+				73CA6C331CECB52D001E047E /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
