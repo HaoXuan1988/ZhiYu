@@ -18,6 +18,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
+    [MBProgressHUD bwm_showHUDAddedTo:self.view title:NSLocalizedString(@"中国", nil) animated:YES];
     
     // Do any additional setup after loading the view.
 }
