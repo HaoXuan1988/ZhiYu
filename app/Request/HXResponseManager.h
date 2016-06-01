@@ -25,7 +25,7 @@
  *  @param totalBytesExpectedToRead 还有多少需要下载
  */
 typedef void (^HXDownloadProgress)(int64_t bytesRead,
-                                    int64_t totalBytesRead);
+                                   int64_t totalBytesRead);
 
 typedef HXDownloadProgress HXGetProgress;
 typedef HXDownloadProgress HXPostProgress;
@@ -37,13 +37,13 @@ typedef HXDownloadProgress HXPostProgress;
  *  @param totalBytesWritten         总上传大小
  */
 typedef void (^HXUploadProgress)(int64_t bytesWritten,
-                                  int64_t totalBytesWritten);
+                                 int64_t totalBytesWritten);
 
 typedef NS_ENUM(NSUInteger, HXResponseMethod) {
-  HXResponseMethodJSON = 1, // 默认
-  HXResponseMethodXML  = 2, // XML
-  // 特殊情况下，一转换服务器就无法识别的，默认会尝试转换成JSON，若失败则需要自己去转换
-  HXResponseMethodData = 3
+    HXResponseMethodJSON = 1, // 默认
+    HXResponseMethodXML  = 2, // XML
+    // 特殊情况下，一转换服务器就无法识别的，默认会尝试转换成JSON，若失败则需要自己去转换
+    HXResponseMethodData = 3
 };
 
 typedef NS_ENUM(NSInteger , HXRequestSerializerMethod) {
@@ -80,7 +80,7 @@ typedef void(^HXResponseSuccess)(NSURLSessionDataTask * _Nullable task, id _Null
  *
  *  @param error 错误信息
  */
-typedef void(^HXResponseFail)( NSError * _Nullable error);
+typedef void(^HXResponseFail)(NSURLSessionDataTask * _Nullable task, NSError * _Nullable error);
 
 /**
  *  基于AFNetworking的网络层封装类.
@@ -121,7 +121,7 @@ typedef void(^HXResponseFail)( NSError * _Nullable error);
  *
  *  @param isCache  BOOL
  */
-- (void)cofigCache:(BOOL)isCache;
+- (void)configCache:(BOOL)isCache;
 
 /**
  *  配置返回格式，默认为JSON。若为XML或者PLIST请在全局修改一下
@@ -265,13 +265,13 @@ typedef void(^HXResponseFail)( NSError * _Nullable error);
  *
  *  @param url         上传图片的接口路径，如/path/images/
  *  @param fileSources 源文件数组<字典>  例如: @[
-                                                @{
-                                                  @"fileData": UIImage / Data / Path( 沙盒路径 FileURL),只能是这三种类型
-                                                  @"name": @"随便", 可以是nil
-                                                  @"fileName": @"12345",
-                                                  @"mimeType": @"image/jepg"
-                                                 }
-                                             ]
+ @{
+ @"fileData": UIImage / Data / Path( 沙盒路径 FileURL),只能是这三种类型
+ @"name": @"随便", 可以是nil
+ @"fileName": @"12345",
+ @"mimeType": @"image/jepg"
+ }
+ ]
  *  @param parameters  携带参数 可以是 nil
  *  @param progress    上传进度(回到主线程更新UI)
  *  @param success     上传成功回调
@@ -321,5 +321,54 @@ typedef void(^HXResponseFail)( NSError * _Nullable error);
                                       progress:(nullable HXDownloadProgress)progressBlock
                                        success:(nullable HXResponseSuccess)success
                                        failure:(nullable HXResponseFail)failure;
+
+/**
+ *  HEAD 请求 不带参数
+ *
+ *  @param url     URL
+ *  @param success 成功
+ *  @param fail    失败
+ *
+ *  @return NSURLSessionTask
+ */
+- (nullable HXURLSessionTask *)headWithUrl:(nullable NSString *)url
+                                   success:(nullable HXResponseSuccess)success
+                                      fail:(nullable HXResponseFail)fail;
+
+/**
+ *  HEAD 请求 带参数
+ *
+ *  @param url     URL
+ *  @param params   参数
+ *  @param success 成功
+ *  @param fail    失败
+ *
+ *  @return NSURLSessionTask
+ */
+- (nullable HXURLSessionTask *)headWithUrl:(nullable NSString *)url
+                                    params:(nullable NSDictionary *)params
+                                   success:(nullable HXResponseSuccess)success
+                                      fail:(nullable HXResponseFail)fail;
+
+/**
+ *  通用的请求
+ *
+ *  @param url          URL
+ *  @param httpMethod   httpMethod
+ *  @param params       参数
+ *  @param networkCache 缓存
+ *  @param progress     进度
+ *  @param success      成功
+ *  @param fail         失败
+ *
+ *  @return NSURLSessionTask
+ */
+- (nullable HXURLSessionTask *)requestWithUrl:(nullable NSString *)url
+                           httpMedth:(HXRequestMethod)httpMethod
+                              params:(nullable NSDictionary *)params
+                        networkCache:(BOOL)networkCache
+                            progress:(nullable HXDownloadProgress)progress
+                             success:(nullable HXResponseSuccess)success
+                                fail:(nullable HXResponseFail)fail;
 
 @end
