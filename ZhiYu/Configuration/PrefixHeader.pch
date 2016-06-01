@@ -1,0 +1,53 @@
+//
+//  PrefixHeader.pch
+//  ZhiYu
+//
+//  Created by 吕浩轩 on 16/5/19.
+//  Copyright © 2016年 上海先致信息股份有限公司. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+
+#import "Configuration.h"//全局配置文件
+#import "HXNetwork.h"//网络请求类 (外加一些类目 HXExtension)
+
+#import <UIKit/UIKit.h>
+#import <WebKit/WebKit.h>
+#import "AFNetworking.h"
+#import "GCDAsyncSocket.h"
+#import "FMDB.h"
+#import "KeyboardManager.h"
+#import "MBProgressHUD.h"
+#import "MBProgressHUD+BWMExtension.h"
+#import "MJExtension.h"
+#import "MJRefresh.h"
+#import "MWPhotoBrowser.h"
+#import "GPUImage.h"
+#import "Masonry.h"
+#import "YRSideViewController.h"
+#import "UITableView+FDTemplateLayoutCell.h"
+#import "ReactiveCocoa.h"
+#import "Gallop.h"
+
+
+#import "SDWebImageManager.h"
+#import "SDImageCache.h"
+#import "UIImageView+WebCache.h"
+#import "SDWebImageCompat.h"
+#import "UIImageView+HighlightedWebCache.h"
+#import "SDWebImageDownloaderOperation.h"
+#import "UIButton+WebCache.h"
+#import "SDWebImagePrefetcher.h"
+#import "UIView+WebCacheOperation.h"
+#import "UIImage+MultiFormat.h"
+#import "SDWebImageOperation.h"
+#import "SDWebImageDownloader.h"
+
+
+
+#endif /* PrefixHeader_pch */

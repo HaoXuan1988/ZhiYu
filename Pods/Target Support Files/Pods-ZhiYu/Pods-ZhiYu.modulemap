@@ -1,0 +1,6 @@
+framework module Pods_ZhiYu {
+  umbrella header "Pods-ZhiYu-umbrella.h"
+
+  export *
+  module * { export * }
+}

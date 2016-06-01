@@ -2,36 +2,26 @@
 
 platform :ios, ‘8.0’
 
-target “app” do
+target “ZhiYu” do
 
   # Uncomment this line if you're using Swift or would like to use dynamic frameworks
-  # use_frameworks!
+use_frameworks!
 
-  # Pods for app
-
-  target ‘appTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target ‘appUITests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-pod 'AFNetworking', '~> 3.1.0'
+pod 'AFNetworking’
+pod ‘GPUImage’
 pod 'Masonry'
-pod ‘SDWebImage‘, ‘~> 3.7.5‘
-pod 'MJExtension', ‘~> 3.0.10'
-pod 'MJRefresh', '~> 3.1.0'
-pod 'MWPhotoBrowser', '~> 2.1.1'
-pod 'FMDB', '~> 2.6.2'
-pod 'CocoaAsyncSocket', '~> 7.4.3'
-pod 'MBProgressHUD', '~> 0.9.2'
-pod 'MBProgressHUD+BWMExtension', '~> 1.0.1'
-pod 'UITableView+FDTemplateLayoutCell', '~> 1.5.beta'
-pod 'IQKeyboardManager', ‘~> 4.0.1’
-pod 'YRSideViewController', '~> 1.0.6'
+pod ‘SDWebImage‘
+pod 'MJExtension'
+pod 'MJRefresh'
+pod 'MWPhotoBrowser'
+pod 'FMDB'
+pod 'CocoaAsyncSocket'
+pod 'MBProgressHUD'
+pod 'MBProgressHUD+BWMExtension'
+pod 'UITableView+FDTemplateLayoutCell'
+pod 'IQKeyboardManager'
+pod 'YRSideViewController'
+pod ‘ReactiveCocoa’
 
 
 end
