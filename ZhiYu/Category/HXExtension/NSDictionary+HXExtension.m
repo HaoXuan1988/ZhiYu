@@ -7,6 +7,7 @@
 //
 
 #import "NSDictionary+HXExtension.h"
+#import "NSObject+HXExtension.h"
 
 @implementation NSDictionary (HXExtension)
 
@@ -95,7 +96,11 @@
                 }
             }
         } else {
-            [desc appendFormat:@"   %@\"%@\" : %@,\n", tab, key, obj];
+            //TMD 打印出来太丑了
+            [desc appendFormat:@" <%s>\n",class_getName([obj class])];
+            NSDictionary *Properties = [obj getAllPropertiesAndValue];
+            NSString *str = [((NSDictionary *)Properties) descriptionWithLocale:locale indent:level + 1];
+            [desc appendFormat:@"   %@\"%@\" : %@,\n", tab, key, str];
         }
     }
     desc = [NSMutableString stringWithString:[desc substringWithRange:NSMakeRange(0, [desc length] - 2)]];

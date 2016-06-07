@@ -10,7 +10,6 @@
 #define HXNetwork_h
 
 #import "HXResponseManager.h"
-#import "HXExtension.h"
 
 
 #endif /* HXNetwork_h */

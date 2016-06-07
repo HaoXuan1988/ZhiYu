@@ -29,6 +29,27 @@
 		575B23E21CFC0E0500332CCD /* LWRunLoopTransactions.m in Sources */ = {isa = PBXBuildFile; fileRef = 575B23CD1CFC0E0500332CCD /* LWRunLoopTransactions.m */; };
 		575B23E31CFC0E0500332CCD /* LWTextParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 575B23CF1CFC0E0500332CCD /* LWTextParser.m */; };
 		575B23E61CFC13F600332CCD /* ClassEvaluationListsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 575B23E51CFC13F600332CCD /* ClassEvaluationListsModel.m */; };
+		5785A3731D00001300D131F1 /* NSObject+HXExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 5785A3721D00001300D131F1 /* NSObject+HXExtension.m */; };
+		5785A3761D001F6300D131F1 /* CommentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5785A3751D001F6300D131F1 /* CommentModel.m */; };
+		5785A37B1D0022A500D131F1 /* Like@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5785A3771D0022A500D131F1 /* Like@2x.png */; };
+		5785A37C1D0022A500D131F1 /* Like@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5785A3781D0022A500D131F1 /* Like@3x.png */; };
+		5785A37D1D0022A500D131F1 /* likewhite@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5785A3791D0022A500D131F1 /* likewhite@2x.png */; };
+		5785A37E1D0022A500D131F1 /* likewhite@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5785A37A1D0022A500D131F1 /* likewhite@3x.png */; };
+		5785A3801D0022AE00D131F1 /* comment@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5785A37F1D0022AE00D131F1 /* comment@2x.png */; };
+		5785A3831D0022BB00D131F1 /* c@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5785A3811D0022BB00D131F1 /* c@2x.png */; };
+		5785A3841D0022BB00D131F1 /* c@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5785A3821D0022BB00D131F1 /* c@3x.png */; };
+		5785A3861D0022C100D131F1 /* [menu].png in Resources */ = {isa = PBXBuildFile; fileRef = 5785A3851D0022C100D131F1 /* [menu].png */; };
+		5785A38E1D0022CF00D131F1 /* [心].png in Resources */ = {isa = PBXBuildFile; fileRef = 5785A3871D0022CF00D131F1 /* [心].png */; };
+		5785A38F1D0022CF00D131F1 /* [face].png in Resources */ = {isa = PBXBuildFile; fileRef = 5785A3881D0022CF00D131F1 /* [face].png */; };
+		5785A3901D0022CF00D131F1 /* 001.png in Resources */ = {isa = PBXBuildFile; fileRef = 5785A3891D0022CF00D131F1 /* 001.png */; };
+		5785A3911D0022CF00D131F1 /* 002.png in Resources */ = {isa = PBXBuildFile; fileRef = 5785A38A1D0022CF00D131F1 /* 002.png */; };
+		5785A3921D0022CF00D131F1 /* 003.png in Resources */ = {isa = PBXBuildFile; fileRef = 5785A38B1D0022CF00D131F1 /* 003.png */; };
+		5785A3931D0022CF00D131F1 /* 004.png in Resources */ = {isa = PBXBuildFile; fileRef = 5785A38C1D0022CF00D131F1 /* 004.png */; };
+		5785A3941D0022CF00D131F1 /* 005.png in Resources */ = {isa = PBXBuildFile; fileRef = 5785A38D1D0022CF00D131F1 /* 005.png */; };
+		5785A3971D0023F000D131F1 /* Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = 5785A3961D0023F000D131F1 /* Menu.m */; };
+		5785A39A1D0025E000D131F1 /* LikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5785A3991D0025E000D131F1 /* LikeButton.m */; };
+		5785A39D1D0025F700D131F1 /* CommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5785A39C1D0025F700D131F1 /* CommentView.m */; };
+		5785A3A01D00260200D131F1 /* AutoFitSizeTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5785A39F1D00260200D131F1 /* AutoFitSizeTextView.m */; };
 		5799DC6C1CED5BD3005184CF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5799DC6B1CED5BD3005184CF /* main.m */; };
 		5799DC6F1CED5BD3005184CF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5799DC6E1CED5BD3005184CF /* AppDelegate.m */; };
 		5799DC721CED5BD3005184CF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5799DC711CED5BD3005184CF /* ViewController.m */; };
@@ -104,6 +125,33 @@
 		575B23CF1CFC0E0500332CCD /* LWTextParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LWTextParser.m; sourceTree = "<group>"; };
 		575B23E41CFC13F600332CCD /* ClassEvaluationListsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassEvaluationListsModel.h; sourceTree = "<group>"; };
 		575B23E51CFC13F600332CCD /* ClassEvaluationListsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassEvaluationListsModel.m; sourceTree = "<group>"; };
+		5785A3711D00001300D131F1 /* NSObject+HXExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HXExtension.h"; sourceTree = "<group>"; };
+		5785A3721D00001300D131F1 /* NSObject+HXExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HXExtension.m"; sourceTree = "<group>"; };
+		5785A3741D001F6300D131F1 /* CommentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentModel.h; sourceTree = "<group>"; };
+		5785A3751D001F6300D131F1 /* CommentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentModel.m; sourceTree = "<group>"; };
+		5785A3771D0022A500D131F1 /* Like@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Like@2x.png"; sourceTree = "<group>"; };
+		5785A3781D0022A500D131F1 /* Like@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Like@3x.png"; sourceTree = "<group>"; };
+		5785A3791D0022A500D131F1 /* likewhite@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "likewhite@2x.png"; sourceTree = "<group>"; };
+		5785A37A1D0022A500D131F1 /* likewhite@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "likewhite@3x.png"; sourceTree = "<group>"; };
+		5785A37F1D0022AE00D131F1 /* comment@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "comment@2x.png"; sourceTree = "<group>"; };
+		5785A3811D0022BB00D131F1 /* c@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "c@2x.png"; sourceTree = "<group>"; };
+		5785A3821D0022BB00D131F1 /* c@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "c@3x.png"; sourceTree = "<group>"; };
+		5785A3851D0022C100D131F1 /* [menu].png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "[menu].png"; sourceTree = "<group>"; };
+		5785A3871D0022CF00D131F1 /* [心].png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "[心].png"; sourceTree = "<group>"; };
+		5785A3881D0022CF00D131F1 /* [face].png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "[face].png"; sourceTree = "<group>"; };
+		5785A3891D0022CF00D131F1 /* 001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 001.png; sourceTree = "<group>"; };
+		5785A38A1D0022CF00D131F1 /* 002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 002.png; sourceTree = "<group>"; };
+		5785A38B1D0022CF00D131F1 /* 003.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 003.png; sourceTree = "<group>"; };
+		5785A38C1D0022CF00D131F1 /* 004.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 004.png; sourceTree = "<group>"; };
+		5785A38D1D0022CF00D131F1 /* 005.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 005.png; sourceTree = "<group>"; };
+		5785A3951D0023F000D131F1 /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
+		5785A3961D0023F000D131F1 /* Menu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Menu.m; sourceTree = "<group>"; };
+		5785A3981D0025E000D131F1 /* LikeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikeButton.h; sourceTree = "<group>"; };
+		5785A3991D0025E000D131F1 /* LikeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikeButton.m; sourceTree = "<group>"; };
+		5785A39B1D0025F700D131F1 /* CommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentView.h; sourceTree = "<group>"; };
+		5785A39C1D0025F700D131F1 /* CommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentView.m; sourceTree = "<group>"; };
+		5785A39E1D00260200D131F1 /* AutoFitSizeTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutoFitSizeTextView.h; sourceTree = "<group>"; };
+		5785A39F1D00260200D131F1 /* AutoFitSizeTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutoFitSizeTextView.m; sourceTree = "<group>"; };
 		5799DC671CED5BD2005184CF /* ZhiYu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZhiYu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5799DC6B1CED5BD3005184CF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5799DC6D1CED5BD3005184CF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -292,12 +340,37 @@
 				5799DCB31CED5D6C005184CF /* RootViewController.m */,
 				575B23E41CFC13F600332CCD /* ClassEvaluationListsModel.h */,
 				575B23E51CFC13F600332CCD /* ClassEvaluationListsModel.m */,
+				5785A3741D001F6300D131F1 /* CommentModel.h */,
+				5785A3751D001F6300D131F1 /* CommentModel.m */,
 				57E6AF011CFD752900200EFF /* XZClassEvaluationListViewModel.h */,
 				57E6AF021CFD752900200EFF /* XZClassEvaluationListViewModel.m */,
 				57E6AF041CFD7C5D00200EFF /* XZClassEvauationTableViewCell.h */,
 				57E6AF051CFD7C5D00200EFF /* XZClassEvauationTableViewCell.m */,
 				571280631CFEE0F600B8FD75 /* XZCellLayout.h */,
 				571280641CFEE0F600B8FD75 /* XZCellLayout.m */,
+				5785A3951D0023F000D131F1 /* Menu.h */,
+				5785A3961D0023F000D131F1 /* Menu.m */,
+				5785A3981D0025E000D131F1 /* LikeButton.h */,
+				5785A3991D0025E000D131F1 /* LikeButton.m */,
+				5785A39B1D0025F700D131F1 /* CommentView.h */,
+				5785A39C1D0025F700D131F1 /* CommentView.m */,
+				5785A39E1D00260200D131F1 /* AutoFitSizeTextView.h */,
+				5785A39F1D00260200D131F1 /* AutoFitSizeTextView.m */,
+				5785A3871D0022CF00D131F1 /* [心].png */,
+				5785A3881D0022CF00D131F1 /* [face].png */,
+				5785A3891D0022CF00D131F1 /* 001.png */,
+				5785A38A1D0022CF00D131F1 /* 002.png */,
+				5785A38B1D0022CF00D131F1 /* 003.png */,
+				5785A38C1D0022CF00D131F1 /* 004.png */,
+				5785A38D1D0022CF00D131F1 /* 005.png */,
+				5785A3851D0022C100D131F1 /* [menu].png */,
+				5785A3811D0022BB00D131F1 /* c@2x.png */,
+				5785A3821D0022BB00D131F1 /* c@3x.png */,
+				5785A37F1D0022AE00D131F1 /* comment@2x.png */,
+				5785A3771D0022A500D131F1 /* Like@2x.png */,
+				5785A3781D0022A500D131F1 /* Like@3x.png */,
+				5785A3791D0022A500D131F1 /* likewhite@2x.png */,
+				5785A37A1D0022A500D131F1 /* likewhite@3x.png */,
 				5799DC731CED5BD3005184CF /* Main.storyboard */,
 				5799DC761CED5BD3005184CF /* Assets.xcassets */,
 				5799DC781CED5BD3005184CF /* LaunchScreen.storyboard */,
@@ -352,6 +425,8 @@
 				5799DC961CED5D6C005184CF /* NSSet+HXExtension.m */,
 				5799DC971CED5D6C005184CF /* NSString+HXExtension.h */,
 				5799DC981CED5D6C005184CF /* NSString+HXExtension.m */,
+				5785A3711D00001300D131F1 /* NSObject+HXExtension.h */,
+				5785A3721D00001300D131F1 /* NSObject+HXExtension.m */,
 				5799DC991CED5D6C005184CF /* UIColor+HXExtension.h */,
 				5799DC9A1CED5D6C005184CF /* UIColor+HXExtension.m */,
 				5799DC9B1CED5D6C005184CF /* UIFont+HXExtension.h */,
@@ -514,10 +589,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				5799DCCE1CED6463005184CF /* Main.storyboard in Resources */,
+				5785A3801D0022AE00D131F1 /* comment@2x.png in Resources */,
+				5785A37B1D0022A500D131F1 /* Like@2x.png in Resources */,
+				5785A3841D0022BB00D131F1 /* c@3x.png in Resources */,
+				5785A38F1D0022CF00D131F1 /* [face].png in Resources */,
 				5799DCCF1CED6463005184CF /* LaunchScreen.storyboard in Resources */,
+				5785A3941D0022CF00D131F1 /* 005.png in Resources */,
+				5785A3931D0022CF00D131F1 /* 004.png in Resources */,
 				5799DCCD1CED640E005184CF /* (null) in Resources */,
+				5785A3861D0022C100D131F1 /* [menu].png in Resources */,
+				5785A37D1D0022A500D131F1 /* likewhite@2x.png in Resources */,
 				5799DCC71CED5D6C005184CF /* Localizable.strings in Resources */,
+				5785A38E1D0022CF00D131F1 /* [心].png in Resources */,
 				5799DC771CED5BD3005184CF /* Assets.xcassets in Resources */,
+				5785A3911D0022CF00D131F1 /* 002.png in Resources */,
+				5785A3831D0022BB00D131F1 /* c@2x.png in Resources */,
+				5785A3921D0022CF00D131F1 /* 003.png in Resources */,
+				5785A37C1D0022A500D131F1 /* Like@3x.png in Resources */,
+				5785A37E1D0022A500D131F1 /* likewhite@3x.png in Resources */,
+				5785A3901D0022CF00D131F1 /* 001.png in Resources */,
 				5799DCC61CED5D6C005184CF /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -584,15 +674,20 @@
 				5799DCBA1CED5D6C005184CF /* BaseViewModel.m in Sources */,
 				575B23E21CFC0E0500332CCD /* LWRunLoopTransactions.m in Sources */,
 				571280651CFEE0F600B8FD75 /* XZCellLayout.m in Sources */,
+				5785A3731D00001300D131F1 /* NSObject+HXExtension.m in Sources */,
 				5799DCBE1CED5D6C005184CF /* NSNumber+HXExtension.m in Sources */,
 				575B23DE1CFC0E0500332CCD /* NSMutableAttributedString+Gallop.m in Sources */,
 				575B23D81CFC0E0500332CCD /* LWStorage+Constraint.m in Sources */,
+				5785A39A1D0025E000D131F1 /* LikeButton.m in Sources */,
+				5785A39D1D0025F700D131F1 /* CommentView.m in Sources */,
 				575B23D11CFC0E0500332CCD /* LWAsyncDisplayView.m in Sources */,
 				5799DCC31CED5D6C005184CF /* UIImage+HXExtension.m in Sources */,
+				5785A3A01D00260200D131F1 /* AutoFitSizeTextView.m in Sources */,
 				5799DCC21CED5D6C005184CF /* UIFont+HXExtension.m in Sources */,
 				5799DCBF1CED5D6C005184CF /* NSSet+HXExtension.m in Sources */,
 				575B23D61CFC0E0500332CCD /* LWConstraint.m in Sources */,
 				575B23E61CFC13F600332CCD /* ClassEvaluationListsModel.m in Sources */,
+				5785A3761D001F6300D131F1 /* CommentModel.m in Sources */,
 				5799DCB91CED5D6C005184CF /* BaseViewController.m in Sources */,
 				575B23D91CFC0E0500332CCD /* LWTextAttachment.m in Sources */,
 				575B23D31CFC0E0500332CCD /* LWLayout.m in Sources */,
@@ -601,6 +696,7 @@
 				575B23DA1CFC0E0500332CCD /* LWTextContainer.m in Sources */,
 				575B23DC1CFC0E0500332CCD /* LWTextLine.m in Sources */,
 				575B23D71CFC0E0500332CCD /* LWConstraintManager.m in Sources */,
+				5785A3971D0023F000D131F1 /* Menu.m in Sources */,
 				575B23D41CFC0E0500332CCD /* LWStorage.m in Sources */,
 				5799DCBD1CED5D6C005184CF /* NSDictionary+HXExtension.m in Sources */,
 				57E6AF061CFD7C5D00200EFF /* XZClassEvauationTableViewCell.m in Sources */,

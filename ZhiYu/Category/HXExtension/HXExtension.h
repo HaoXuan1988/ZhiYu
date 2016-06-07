@@ -14,3 +14,4 @@
 #import "UIColor+HXExtension.h"
 #import "UIFont+HXExtension.h"
 #import "UIImage+HXExtension.h"
+#import "NSObject+HXExtension.h"

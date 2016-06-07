@@ -7,6 +7,8 @@
 //
 
 #import "NSArray+HXExtension.h"
+#import <objc/runtime.h>
+#import "NSObject+HXExtension.h"
 
 @implementation NSArray (HXExtension)
 
@@ -88,6 +90,9 @@
 }
 
 
+
+
+
 #pragma mark  打印
 #if DEBUG
 /*!
@@ -155,7 +160,13 @@
                 }
             }
         } else {
-            [desc appendFormat:@"   %@%@,\n", tab, obj];
+            
+            //TMD 打印出来太丑了
+            [desc appendFormat:@" <%s>\n",class_getName([obj class])];
+            NSDictionary *Properties = [obj getAllPropertiesAndValue];
+            NSString *str = [((NSDictionary *)Properties) descriptionWithLocale:locale indent:level + 1];
+            [desc appendFormat:@"   %@%@,\n", tab, str];
+            
         }
     }
     
@@ -169,6 +180,7 @@
     return desc;
 }
 #endif
+
 
 
 @end

@@ -34,7 +34,7 @@
 @optional
 
 /***  点击链接 ***/
-- (void)lwAsyncDisplayView:(LWAsyncDisplayView *)asyncDisplayView didCilickedTextStorage:(LWTextStorage *)textStorage linkdata:(id)data;
+- (void)lwAsyncDisplayView:(LWAsyncDisplayView *)asyncDisplayView didCilickedLinkWithfData:(id)data;
 /***  点击LWImageStorage回调 ***/
 - (void)lwAsyncDisplayView:(LWAsyncDisplayView *)asyncDisplayView didCilickedImageStorage:(LWImageStorage *)imageStorage touch:(UITouch *)touch;
 /***  额外的绘制任务在这里实现 ***/
@@ -50,5 +50,12 @@
 @property (nonatomic,strong) LWLayout* layout;//布局模型
 @property (nonatomic,assign) BOOL displaysAsynchronously;
 
+/**
+ *  初始化并设置最大ImageContainer的数量。
+ *  @param count 最大ImageStorage的数量。
+ *
+ *  @return
+ */
+- (id)initWithFrame:(CGRect)frame maxImageStorageCount:(NSInteger)count;
 
 @end

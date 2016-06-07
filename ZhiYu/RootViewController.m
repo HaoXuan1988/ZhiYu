@@ -9,15 +9,19 @@
 #import "RootViewController.h"
 #import "ClassEvaluationListsModel.h"
 #import "XZClassEvauationTableViewCell.h"
-//#import "MJExtension.h"
+#import "XZCellLayout.h"
+#import "CommentView.h"
 
 static NSString *classEvauationTableViewCellIdentifier = @"XZClassEvauationTableViewCell";
 
-@interface RootViewController ()<WKUIDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface RootViewController ()<WKUIDelegate,UITableViewDelegate,UITableViewDataSource,TableViewCellDelegate>
 @property (nonatomic,strong)WKWebView *webView;
 @property (nonatomic,strong)NSMutableArray *data;
 @property (nonatomic,assign)int page;
 @property (nonatomic,strong) UITableView *tabelView;
+
+@property (nonatomic,strong) CommentView* commentView;
+
 @end
 
 @implementation RootViewController
@@ -25,6 +29,8 @@ static NSString *classEvauationTableViewCellIdentifier = @"XZClassEvauationTable
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    self.title = @"朋友圈";
     self.data = [NSMutableArray array];
     
     [self.view addSubview:self.tabelView];
@@ -34,7 +40,6 @@ static NSString *classEvauationTableViewCellIdentifier = @"XZClassEvauationTable
 
 - (void)loadData {
     MBProgressHUD *hub = [MBProgressHUD bwm_showDeterminateHUDTo:self.view];
-    
     
     HXResponseManager *manager = [HXResponseManager manager];
     NSDictionary *dic = @{
@@ -47,17 +52,19 @@ static NSString *classEvauationTableViewCellIdentifier = @"XZClassEvauationTable
     
     
     NSDictionary *file1 = @{@"evaFileId":@"11111111", @"createDate":@"111111", @"type":@"1", @"filePath":@"http://v1.qzone.cc/pic/201510/31/11/17/563432b7977c7764.jpeg%21600x600.jpg"};
-    NSDictionary *file2 = @{@"evaFileId":@"11111111", @"createDate":@"111111", @"type":@"1", @"filePath":@"http://img4.imgtn.bdimg.com/it/u=3264623887,731292429&fm=21&gp=0.jpg"};
+    NSDictionary *file2 = @{@"evaFileId":@"11111111", @"createDate":@"111111", @"type":@"1", @"filePath":@"http://bizhi.4493.com/uploads/allimg/141010/4-141010150301.jpg"};
     NSDictionary *file3 = @{@"evaFileId":@"11111111", @"createDate":@"111111", @"type":@"1", @"filePath":@"http://img.gougoutu.com/upload/201404/16/201404162039409761.jpg"};
-    NSDictionary *file4 = @{@"evaFileId":@"11111111", @"createDate":@"111111", @"type":@"1", @"filePath":@"http://img5.imgtn.bdimg.com/it/u=3425851328,2681317699&fm=21&gp=0.jpg"};
+    NSDictionary *file4 = @{@"evaFileId":@"11111111", @"createDate":@"111111", @"type":@"1", @"filePath":@"http://img.taopic.com/uploads/allimg/130529/240454-13052ZS41658.jpg"};
     NSDictionary *file5 = @{@"evaFileId":@"11111111", @"createDate":@"111111", @"type":@"1", @"filePath":@"http://pic9.nipic.com/20100904/4845745_195609329636_2.jpg"};
     NSDictionary *file6 = @{@"evaFileId":@"11111111", @"createDate":@"111111", @"type":@"1", @"filePath":@"http://hiphotos.baidu.com/praisejesus/pic/item/e8df7df89fac869eb68f316d.jpg"};
     NSDictionary *file7 = @{@"evaFileId":@"11111111", @"createDate":@"111111", @"type":@"1", @"filePath":@"http://img.61gequ.com/allimg/2011-4/201142614314278502.jpg"};
     NSDictionary *file8 = @{@"evaFileId":@"11111111", @"createDate":@"111111", @"type":@"1", @"filePath":@"http://pic37.nipic.com/20140209/8821914_163234218136_2.jpg"};
     NSDictionary *file9 = @{@"evaFileId":@"11111111", @"createDate":@"111111", @"type":@"1", @"filePath":@"http://pic1.nipic.com/2008-11-13/2008111384358912_2.jpg"};
+
+    
     NSArray *files = @[file1, file2, file3, file4, file5, file6, file7, file8, file9];
+    
     [manager postWithUrl:@"http://satisfy.cn:8163/teachingCloudDev/api/app/getEvaluationList" params:dic success:^(NSURLSessionDataTask * _Nullable task, id  _Nullable responseObject) {
-        [hub hide:NO];
         NSString *code = responseObject[@"code"];
         if (![code isEmpty] && [code isEqualToString:@"0"]) {
             
@@ -71,20 +78,27 @@ static NSString *classEvauationTableViewCellIdentifier = @"XZClassEvauationTable
                     _page++;
                 }
                 
-                for (NSDictionary *dic in list) {
+                for (int i = 0; i < list.count; i++) {
+                    NSDictionary *dic = [NSDictionary dictionaryWithDictionary:list[i]];
                     ClassEvaluationListsModel *model = [ClassEvaluationListsModel mj_objectWithKeyValues:dic];
+                    model.photoPath = @"http://d.hiphotos.baidu.com/zhidao/wh%3D600%2C800/sign=b2219135b51bb0518f71bb2e064af68c/738b4710b912c8fcd8986bdafa039245d68821b9.jpg";
                     model.evalFiles = [NSMutableArray array];
                     for (NSDictionary *dic in files) {
                         Evalfiles *aa = [[Evalfiles alloc]init];
                         aa.type = dic[@"type"];
-                        aa.createDate = @"111111";
+                        aa.createDate = dic[@"createDate"];
                         aa.filePath = dic[@"filePath"];
-                        aa.evaFileId = @"11111111";
+                        aa.evaFileId = dic[@"evaFileId"];
                         [model.evalFiles addObject:aa];
                     }
-                   NSLog(@"%@", model.evalFiles);
-                    [_data addObject:model];
+                    
+                    XZCellLayout* layout = [self layoutWithStatusModel:model index:i];
+                    [_data addObject:layout];
                 }
+                
+                
+                [_tabelView reloadData];
+                [hub hide:NO];
             }
         }else if (![code isEmpty]) {
             
@@ -96,6 +110,12 @@ static NSString *classEvauationTableViewCellIdentifier = @"XZClassEvauationTable
         [MBProgressHUD bwm_showTitle:@"请检查网络" toView:self.view hideAfter:2];
     }];
     
+}
+
+- (XZCellLayout *)layoutWithStatusModel:(ClassEvaluationListsModel *)statusModel index:(NSInteger)index {
+    //生成Layout
+    XZCellLayout* layout = [[XZCellLayout alloc] initWithStatusModel:statusModel index:index];
+    return layout;
 }
 
 - (UITableView *)tabelView {
@@ -121,23 +141,57 @@ static NSString *classEvauationTableViewCellIdentifier = @"XZClassEvauationTable
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return [tableView fd_heightForCellWithIdentifier:classEvauationTableViewCellIdentifier cacheByIndexPath:indexPath configuration:^(XZClassEvauationTableViewCell *cell) {
-        [cell setModel:[_data objectAtIndex:indexPath.row] indexPath:indexPath];
-    }];;
+    if (self.data.count >= indexPath.row) {
+        XZCellLayout* layout = self.data[indexPath.row];
+        return layout.cellHeight;
+    }
+    return 0;
+//    return [tableView fd_heightForCellWithIdentifier:classEvauationTableViewCellIdentifier cacheByIndexPath:indexPath configuration:^(XZClassEvauationTableViewCell *cell) {
+//        [cell setModel:[_data objectAtIndex:indexPath.row] indexPath:indexPath];
+//    }];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     XZClassEvauationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:classEvauationTableViewCellIdentifier];
     
     cell.fd_enforceFrameLayout = YES;
-    [cell setModel:[_data objectAtIndex:indexPath.row] indexPath:indexPath];
+    cell.delegate = self;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.indexPath = indexPath;
+    if (self.data.count >= indexPath.row) {
+        XZCellLayout* cellLayout = self.data[indexPath.row];
+        cell.cellLayout = cellLayout;
+    }
     
     return cell;
 }
 
+/***  点赞 ***/
 
 
+/***  点击评论 ***/
+- (void)tableViewCell:(XZClassEvauationTableViewCell *)cell didClickedCommentWithCellLayout:(XZCellLayout *)layout
+          atIndexPath:(NSIndexPath *)indexPath {
+    
+}
 
+
+/***  发表评论 ***/
+- (void)postCommentWithCommentModel:(ClassEvaluationListsModel *)model {
+    
+}
+
+
+/***  点击图片 ***/
+- (void)tableViewCell:(XZClassEvauationTableViewCell *)cell didClickedImageWithCellLayout:(XZCellLayout *)layout atIndex:(NSInteger)index {
+    
+}
+
+/***  点击链接 ***/
+- (void)tableViewCell:(XZClassEvauationTableViewCell *)cell didClickedLinkWithData:(id)data {
+    
+}
 
 
 //- (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {

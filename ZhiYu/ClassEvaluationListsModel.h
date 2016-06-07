@@ -25,6 +25,8 @@
 
 @property (nonatomic, copy) NSString *photoPath;
 
+@property (nonatomic, assign) BOOL isLike;
+
 @property (nonatomic, strong) NSArray<Evalzan *> *evalZan;
 
 @property (nonatomic, copy) NSString *stuId;

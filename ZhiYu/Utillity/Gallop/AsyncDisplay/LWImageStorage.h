@@ -30,22 +30,32 @@
 /***  Image模型  ***/
 @interface LWImageStorage : LWStorage <NSCopying,NSCoding>
 
-@property (nonatomic,strong) id contents;//内容（UIImage or NSURL）
-@property (nonatomic,strong) UIImage* placeholder;//占位图
-@property (nonatomic,assign,getter=isFadeShow) BOOL fadeShow;//加载完成是否渐隐出现
+/**
+ *  内容（UIImage or NSURL）
+ */
+@property (nonatomic,strong) id contents;
+/**
+ *  占位图
+ */
+@property (nonatomic,strong) UIImage* placeholder;
+/**
+ *  加载完成是否渐隐出现
+ */
+@property (nonatomic,assign,getter=isFadeShow) BOOL fadeShow;
+/**
+ *  <#Description#>
+ */
 @property (nonatomic,assign, getter=isUserInteractionEnabled) BOOL userInteractionEnabled;
 
 
-/*** 绘制 ***/
+/** 绘制 ***/
 - (void)lw_drawInContext:(CGContextRef)context isCancelled:(LWAsyncDisplayIsCanclledBlock)isCancelld;
+
 - (void)stretchableImageWithLeftCapWidth:(CGFloat)leftCapWidth topCapHeight:(NSInteger)topCapHeight;
 
 @end
 
 @interface UIView (LWImageStorage)
-
-
-@property (nonatomic,copy) NSString* identifier;
 
 - (void)setContentWithImageStorage:(LWImageStorage *)imageStorage;
 - (void)layoutWithStorage:(LWImageStorage *)imageStorage;

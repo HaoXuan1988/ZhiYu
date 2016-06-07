@@ -14,7 +14,8 @@
 
 
 #import "Configuration.h"//全局配置文件
-#import "HXNetwork.h"//网络请求类 (外加一些类目 HXExtension)
+#import "HXNetwork.h"//网络请求类
+#import "HXExtension.h"
 
 #import <UIKit/UIKit.h>
 #import <WebKit/WebKit.h>

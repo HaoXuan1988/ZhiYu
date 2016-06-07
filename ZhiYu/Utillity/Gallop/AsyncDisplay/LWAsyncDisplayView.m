@@ -1,18 +1,18 @@
 /*
  https://github.com/waynezxcv/Gallop
- 
+
  Copyright (c) 2016 waynezxcv <liuweiself@126.com>
- 
+
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
  in the Software without restriction, including without limitation the rights
  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  copies of the Software, and to permit persons to whom the Software is
  furnished to do so, subject to the following conditions:
- 
+
  The above copyright notice and this permission notice shall be included in
  all copies or substantial portions of the Software.
- 
+
  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -31,8 +31,8 @@
 
 @interface LWAsyncDisplayView ()
 
-@property (nonatomic,strong) NSMutableArray* reusePool;
 @property (nonatomic,strong) NSMutableArray* imageContainers;
+@property (nonatomic,assign) NSInteger maxImageStorageCount;
 
 @property (nonatomic,copy) NSArray* textStorages;
 @property (nonatomic,copy) NSArray* imageStorages;
@@ -49,9 +49,27 @@
 
 #pragma mark - LifeCycle
 
+- (id)initWithFrame:(CGRect)frame maxImageStorageCount:(NSInteger)count {
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self setup];
+        self.maxImageStorageCount = count;
+        for (NSInteger i = 0; i < self.maxImageStorageCount; i ++) {
+            UIView* container = [[UIView alloc] initWithFrame:CGRectZero];
+            container.hidden = YES;
+            container.backgroundColor = RGB(240, 240, 240, 1);
+            container.clipsToBounds = YES;
+            [self addSubview:container];
+            [self.imageContainers addObject:container];
+        }
+    }
+    return self;
+}
+
 - (id)init {
     self = [super init];
     if (self) {
+        self.maxImageStorageCount = 0;
         [self setup];
     }
     return self;
@@ -74,39 +92,17 @@
 
 
 #pragma mark - Private
-- (void)_cleanAddToReusePool {
-    for (NSInteger i = 0; i < self.imageContainers.count; i ++) {
-        UIView* container = [self.imageContainers objectAtIndex:i];
-        [container cleanup];
-        [self.reusePool addObject:container];
-    }
-    [self.imageContainers removeAllObjects];
-}
-
 - (void)_setImageStorages {
-    for (NSInteger i = 0; i < self.imageStorages.count; i ++) {
-        LWImageStorage* imageStorage = _imageStorages[i];
-        UIView* container = [self _dequeueReusableImageContainerWithIdentifier:imageStorage.identifier];
-        if (!container) {
-            container = [[UIView alloc] initWithFrame:CGRectZero];
-            container.identifier = imageStorage.identifier;
-            container.backgroundColor = imageStorage.backgroundColor;
-            container.clipsToBounds = imageStorage.clipsToBounds;
-            [self addSubview:container];
-        }
-        [self.imageContainers addObject:container];
-        [container setContentWithImageStorage:imageStorage];
-    }
-}
-
-- (UIView *)_dequeueReusableImageContainerWithIdentifier:(NSString *)identifier {
-    for (UIView* container in self.reusePool) {
-        if ([container.identifier isEqualToString:identifier]) {
-            [self.reusePool removeObject:container];
-            return container;
+    for (NSInteger i = 0; i < self.imageContainers.count; i ++) {
+        if (i >= _imageStorages.count) {
+            UIView* container = self.imageContainers[i];
+            [container cleanup];
+        } else {
+            LWImageStorage* imageStorage = _imageStorages[i];
+            UIView* container = self.imageContainers[i];
+            [container setContentWithImageStorage:imageStorage];
         }
     }
-    return nil;
 }
 
 #pragma mark - Display
@@ -172,9 +168,9 @@
     }
 }
 
+
 #pragma mark - Touch
 - (LWTextHighlight *)_isNeedShowHighlight:(LWTextStorage *)textStorage touchPoint:(CGPoint)touchPoint {
-    LWTextHighlight* wholeTextHighlight = nil;
     if ([textStorage isKindOfClass:[LWTextStorage class]]) {
         CGPoint adjustPosition = textStorage.frame.origin;
         for (LWTextHighlight* aHighlight in textStorage.textLayout.textHighlights) {
@@ -185,18 +181,13 @@
                                                rect.size.width,
                                                rect.size.height);
                 if (CGRectContainsPoint(adjustRect, touchPoint)) {
-                    if (![aHighlight.userInfo[@"type"] isEqualToString:@"wholeText"]) {
-                        return aHighlight;
-                    } else {
-                        wholeTextHighlight = aHighlight;
-                    }
+                    return aHighlight;
                 }
             }
         }
     }
-    return wholeTextHighlight;
+    return nil;
 }
-
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     BOOL found = NO;
@@ -263,8 +254,8 @@
         }
         if ([textStorage isKindOfClass:[LWTextStorage class]]) {
             if (_highlight) {
-                if ([self.delegate respondsToSelector:@selector(lwAsyncDisplayView:didCilickedTextStorage:linkdata:)]) {
-                    [self.delegate lwAsyncDisplayView:self didCilickedTextStorage:textStorage linkdata:_highlight.content];
+                if ([self.delegate respondsToSelector:@selector(lwAsyncDisplayView:didCilickedLinkWithfData:)]) {
+                    [self.delegate lwAsyncDisplayView:self didCilickedLinkWithfData:_highlight.content];
                 }
             }
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -317,14 +308,6 @@
     return _imageContainers;
 }
 
-- (NSMutableArray *)reusePool {
-    if (_reusePool) {
-        return _reusePool;
-    }
-    _reusePool = [[NSMutableArray alloc] init];
-    return _reusePool;
-}
-
 #pragma mark - Setter
 
 - (void)setDisplaysAsynchronously:(BOOL)displaysAsynchronously {
@@ -336,7 +319,6 @@
     if (_layout == layout) {
         return;
     }
-    [self _cleanAddToReusePool];
     _layout = layout;
     self.imageStorages = self.layout.imageStorages;
     self.textStorages = self.layout.textStorages;

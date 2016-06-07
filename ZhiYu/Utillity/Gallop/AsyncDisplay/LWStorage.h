@@ -30,9 +30,6 @@
 
 @interface LWStorage : NSObject<NSCopying,NSCoding>
 
-
-@property (nullable,nonatomic,copy) NSString* identifier;
-@property (nonatomic,assign) NSInteger tag;
 @property (nonatomic,assign) BOOL clipsToBounds;
 @property (nonatomic,getter = isOpaque) BOOL opaque;
 @property (nonatomic,getter = isHidden) BOOL hidden;
@@ -61,7 +58,5 @@
 @property (nonatomic,assign) CGFloat contentsScale;
 @property (nonatomic,strong,nullable) UIColor* backgroundColor;
 @property (nonatomic,assign) UIViewContentMode contentMode;
-
-- (id)initWithIdentifier:(NSString *)identifier;
 
 @end

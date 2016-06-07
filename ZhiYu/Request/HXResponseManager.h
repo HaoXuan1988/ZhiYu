@@ -10,12 +10,6 @@
 #import <UIKit/UIKit.h>
 
 
-#ifndef __OPTIMIZE__
-#define SLog(...) NSLog(__VA_ARGS__)
-#else
-#define SLog(...) {}
-#endif
-
 
 /**
  *  下载进度
@@ -89,8 +83,8 @@ typedef void(^HXResponseFail)(NSURLSessionDataTask * _Nullable task, NSError * _
  */
 @interface HXResponseManager : NSObject
 
-@property (nonatomic, copy) __nullable HXResponseSuccess responseSuccess;
-@property (nonatomic, copy) __nullable HXResponseFail responseFail;
+@property (nonatomic, strong) __nullable HXResponseSuccess responseSuccess;
+@property (nonatomic, strong) __nullable HXResponseFail responseFail;
 
 /**
  *  初始化
@@ -117,7 +111,7 @@ typedef void(^HXResponseFail)(NSURLSessionDataTask * _Nullable task, NSError * _
 - (nonnull NSString *)baseUrl;
 
 /**
- *  是否缓存
+ *  配置是否缓存
  *
  *  @param isCache  BOOL
  */

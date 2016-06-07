@@ -81,6 +81,9 @@ static inline NSRegularExpression* TopicRegularExpression() {
 
 + (void)parseEmojiWithTextStorage:(LWTextStorage *)textStorage {
     NSString* text = textStorage.text;
+    if (!text) {
+        return;
+    }
     NSArray* resultArray = [EmojiRegularExpression() matchesInString:text
                                                              options:0
                                                                range:NSMakeRange(0,text.length)];
@@ -104,6 +107,9 @@ static inline NSRegularExpression* TopicRegularExpression() {
                           linkColor:(UIColor *)linkColor
                      highlightColor:(UIColor *)higlightColor {
     NSString* text = textStorage.text;
+    if (!text) {
+        return;
+    }
     NSArray* resultArray = [URLRegularExpression() matchesInString:text
                                                            options:0
                                                              range:NSMakeRange(0,text.length)];
@@ -120,6 +126,9 @@ static inline NSRegularExpression* TopicRegularExpression() {
                      highlightColor:(UIColor *)higlightColor {
 
     NSString* text = textStorage.text;
+    if (!text) {
+        return;
+    }
     NSArray* resultArray = [AccountRegularExpression() matchesInString:text
                                                                options:0
                                                                  range:NSMakeRange(0,text.length)];
@@ -136,6 +145,9 @@ static inline NSRegularExpression* TopicRegularExpression() {
                      highlightColor:(UIColor *)higlightColor {
 
     NSString* text = textStorage.text;
+    if (!text) {
+        return;
+    }
     NSArray* resultArray = [TopicRegularExpression() matchesInString:text
                                                              options:0
                                                                range:NSMakeRange(0,text.length)];
